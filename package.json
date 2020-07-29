@@ -1,0 +1,62 @@
+{
+  "name": "cci",
+  "keywords": [
+    "cli",
+    "circleci",
+    "workflow"
+  ],
+  "version": "0.4.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn exec tsc",
+    "clean": "yarn exec rimraf ./coverage ./dist ./node_modules",
+    "lint": "eslint src --ext js,jsx,ts,tsx",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn lint && yarn test",
+    "test": "yarn lint && yarn prepare && FORCE_COLOR=true jest --runInBand --coverage=true",
+    "watch": "yarn exec tsc -- -w"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "@types/dedent": "0.7.0",
+    "@types/minimist": "1.2.0",
+    "@types/node": "13.9.1",
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "dedent": "0.7.0",
+    "minimist": "1.2.5",
+    "moment": "^2.25.3",
+    "node-fetch": "^2.6.0",
+    "relative-time-parser": "^1.0.13"
+  },
+  "devDependencies": {
+    "@types/jest": "25.1.4",
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.4",
+    "jest": "26.1.0",
+    "jest-mock-console": "1.0.1",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "rimraf": "3.0.2",
+    "ts-jest": "25.2.1",
+    "typescript": "3.9.7"
+  },
+  "bin": {
+    "cci": "./dist/index.js"
+  },
+  "author": {
+    "name": "John Buxton",
+    "email": "john.buxton2@gmail.com"
+  }
+}

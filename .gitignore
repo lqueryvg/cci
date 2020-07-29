@@ -1,0 +1,8 @@
+node_modules/
+yarn-error.log
+*.tgz
+coverage/
+.DS_Store
+dist/
+
+ignore/
