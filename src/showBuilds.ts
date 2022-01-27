@@ -40,7 +40,7 @@ const showBuilds = async (): Promise<void> => {
       console.log(
         // `${build.username}/${build.reponame}/${build.build_num}` +
         // eslint-disable-next-line prefer-template
-        `${chalk.yellow(build.build_num)}s` +
+        `${chalk.yellow(build.build_num)}` +
           ` ${chalk.blue(build.stop_time)}` +
           ` ${statusText(build.status)}` +
           ` ${build.branch}` +
@@ -75,7 +75,7 @@ const showBuilds = async (): Promise<void> => {
     let matchingStep;
     if (getParsedArgs().containsStep) {
       const detailedBuild = await getBuild(build.build_num);
-      matchingStep = detailedBuild.steps.find(step =>
+      matchingStep = detailedBuild.steps.find((step) =>
         step.name.match(new RegExp(getParsedArgs().containsStep))
       );
       if (!matchingStep) continue;
